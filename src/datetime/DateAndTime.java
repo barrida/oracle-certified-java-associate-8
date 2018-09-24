@@ -96,15 +96,20 @@ public class DateAndTime {
 	private static void patternsForFormatting() {
 		System.out.println("-------------------------------\nPatterns for Formatting and Parsing");
 		
-		//date objects
+		//Create date objects
 		LocalDateTime dateTime = LocalDateTime.now();
 		LocalTime time = LocalTime.now();
 		LocalDate date = LocalDate.now();
 		
-		String pattern = "d MM yyyy";
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
+		//The format() method is declared on both the formatter objects and the date/time objects
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d MMMMM yyyy");
 		System.out.println("Formats this date-time using the specified formatter: " + dateTime.format(dateTimeFormatter));
 		System.out.println("Formats a date-time object using this formatter: " + dateTimeFormatter.format(dateTime));
+		
+		//ISO is a standard for dates
+		System.out.println("Formats a date-time using DateTimeFormatter.ISO_LOCAL_DATE: " + dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE));
+		System.out.println("Formats a time using DateTimeFormatter.ISO_LOCAL_TIME: " + time.format(DateTimeFormatter.ISO_LOCAL_TIME));
+		System.out.println("Formats a date-time using DateTimeFormatter.ISO_LOCAL_DATE_TIME: " + dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
 		
 		// We can only use this formatter with objects containing times
 		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm"); 
@@ -119,7 +124,7 @@ public class DateAndTime {
 	 */
 	private static void parsingDatesAndTimes() {
 		System.out.println("-------------------------------\nParsing Dates and Times");
-		DateTimeFormatter f = DateTimeFormatter.ofPattern("dd MM yyyy");
+		DateTimeFormatter f = DateTimeFormatter.ofPattern("MM dd yyyy");
 		LocalDate date = LocalDate.parse("01 02 2015", f);
 		LocalTime time = LocalTime.parse("11:22");
 		System.out.println(date); // 2015-01-02
