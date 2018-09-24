@@ -1,5 +1,5 @@
 # Practice codes for Oracle Certified Associate (OCA) Java SE 8 Programmer I 
-This project is created to share code samples to prapare for OCA exam.
+This project is created to share code samples to prapare for OCA exam. Feel free to use and/or contribute.
 
 # The topics covered in this exam
 1. Java Basics
