@@ -29,19 +29,29 @@ public class StringFunctions {
 		
 		//indexOf
 		System.out.println(s.indexOf("aa")); // -1
-		System.out.println(s.indexOf("J")); // -1
+		System.out.println(s.indexOf("J")); // 0
 		
 		//substring(beginIndex,endIndex)
 		for (int i = 0; i <= s.length(); i++) {
 			System.out.println(s.substring(0, i));
 		}
 		
+		System.out.println("begin end same: "+s.substring(2,2));
+		
 		//substring(beginIndex)
 		for (int i = 0; i <= s.length(); i++) {
 			System.out.println(s.substring(i));
 		}
 		
+		
 		System.out.println(s.toString());
+		
+		
+		int total = 0;
+		StringBuilder letters = new StringBuilder("suleyman");
+		total += letters.substring(4).length();
+		total += letters.substring(6, 5).length(); //java.lang.StringIndexOutOfBoundsException: String index out of range:
+		System.out.println(total);
 
 	}
 

@@ -1,19 +1,23 @@
-We need to know the most used functions in both classes for the exam. The first 4 functions are 
+-------------------------------------
+String					StringBuilder
+-------------------------------------
 
-   	String					StringBuilder
- 	------					-------
-	charAt()				charAt()
-	indexOf()				indexOf()
-	length()				length()
-	substring()				substring()
-	
-	toLowerCase()			append()
-	toUpperCase()			insert()
-	equals()				delete()
-	equalsIgnoreCase()	 	deleteCharAt()
-	startsWith()			reverse()
-	endsWith()	  			toString()
-	contains()	
-	replace()	
-	trim()
+These are the most used functions in String and StringBuilder classes for the exam.
+
+charAt()				charAt()
+indexOf()				indexOf()
+length()				length()
+substring()				substring()
+
+-------------------------------------
+
+toLowerCase()			append()
+toUpperCase()			insert()
+equals()				delete()
+equalsIgnoreCase()	 	deleteCharAt()
+startsWith()			reverse()
+endsWith()	  			toString()
+contains()	
+replace()	
+trim()
 	
