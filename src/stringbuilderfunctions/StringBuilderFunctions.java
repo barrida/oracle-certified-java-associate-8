@@ -1,5 +1,8 @@
 package stringbuilderfunctions;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class StringBuilderFunctions {
 
 	/**
@@ -9,9 +12,11 @@ public class StringBuilderFunctions {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		new StringBuilderFunctions();
 		functions();
 	}
-
+	
+	
 	private static void functions() {
 		StringBuilder stringBuilder = new StringBuilder("qweasdzxc");
 		
@@ -41,4 +46,5 @@ public class StringBuilderFunctions {
 		
 
 	}
+
 }

@@ -67,6 +67,7 @@ public class DateAndTime {
 		LocalDateTime dateTime = LocalDateTime.of(date, time);
 		System.out.println("Time before period: " + dateTime);
 		Period period = Period.ofMonths(1);
+		System.out.println("asdada" + date);
 		System.out.println("Add period of 1 month: " + date.plus(period)); // 2015-02-20
 		System.out.println("DateTime after period: " + dateTime.plus(period)); // 2015-02-20T06:15
 
