@@ -1,4 +1,4 @@
-package stringfunctions;
+package coreapi.string;
 
 /**
  * 

@@ -1,4 +1,4 @@
-package stringmanipulation;
+package coreapi.string;
 
 public class StringManipulation {
 
