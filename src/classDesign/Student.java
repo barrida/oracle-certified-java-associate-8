@@ -72,11 +72,11 @@ class Lion extends BigCat {
  */
 
 abstract class Animal2 {
-	public abstract String getName();
+	public abstract String getName(); //it is no longer abstract by the time it reaches the Lion2 so it is not considered as abstract by Lion2
 }
 
 abstract class BigCat2 extends Animal {
-	public String getName() {
+	public String getName() { 
 		return "BigCat";
 	}
 
