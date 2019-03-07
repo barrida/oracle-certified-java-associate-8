@@ -1,6 +1,6 @@
-package classess;
+package classDesign;
 
-public class TwoWheeler implements Automobile {
+public class FourWheeler implements Automobile {
 	String name;
 
 	public String describe() {

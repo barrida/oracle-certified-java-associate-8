@@ -1,4 +1,4 @@
-package classess;
+package classDesign;
 
 public class Main {
 
