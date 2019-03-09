@@ -18,40 +18,50 @@ public class StringFunctions {
 	}
 
 	private static void commonFunctions() {
-		// charAt(), indexOf(), length(), substring() are common functions for String and StringBuilder
+		// charAt(), indexOf(), length(), substring() are common functions for
+		// String and StringBuilder
 
-		//charAt
+		// charAt
 		String s = "Java8";
+
 		System.out.println(s.charAt(0));
 		System.out.println(s.charAt(s.length() - 1));
 		// s.charAt(s.length()); // java.lang.StringIndexOutOfBoundsException
 
-		
-		//indexOf
+		// indexOf
 		System.out.println(s.indexOf("aa")); // -1
 		System.out.println(s.indexOf("J")); // 0
-		
-		//substring(beginIndex,endIndex)
+
+		// substring(beginIndex,endIndex)
 		for (int i = 0; i <= s.length(); i++) {
 			System.out.println(s.substring(0, i));
 		}
-		
-		System.out.println("begin end same: "+s.substring(2,2));
-		
-		//substring(beginIndex)
+
+		System.out.println("begin end same: " + s.substring(2, 2));
+
+		// substring(beginIndex)
 		for (int i = 0; i <= s.length(); i++) {
 			System.out.println(s.substring(i));
 		}
-		
-		
+
+		// replace
+		s.replace('a', 'J');
+		System.out.println(s);
 		System.out.println(s.toString());
-		
-		
+
 		int total = 0;
 		StringBuilder letters = new StringBuilder("suleyman");
 		total += letters.substring(4).length();
-		total += letters.substring(6, 5).length(); //java.lang.StringIndexOutOfBoundsException: String index out of range:
+		// total += letters.substring(6, 5).length();
+		// //java.lang.StringIndexOutOfBoundsException: String index out of
+		// range:
 		System.out.println(total);
+
+		boolean a, b = true;
+		if (a = b) {
+			System.out.println(
+					"If a and b are of type boolean, the expression (a = b) can be used as the condition expression of an if statement.");
+		}
 
 	}
 

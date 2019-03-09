@@ -40,13 +40,28 @@ public class Main {
 		Boolean.parseBoolean(s);
 		Boolean.valueOf(false);
 		Boolean asd = Boolean.valueOf("123");
-		
+
 		System.out.println(Character.valueOf('x'));
 
 		// NumberFormatException
-		int bad1 = Integer.parseInt("a"); // throws NumberFormatException
-		Integer bad2 = Integer.valueOf("123.45"); // throws
-													// NumberFormatException
-		
+		// int bad1 = Integer.parseInt("a"); // throws NumberFormatException
+		// Integer bad2 = Integer.valueOf("123.45"); // throws
+		// // NumberFormatException
+
+		/**
+		 * Overflow
+		 * 
+		 * If an integer addition overflows, then the result is the low-order
+		 * bits of the mathematical sum as represented in some sufficiently
+		 * large two's-complement format. If overflow occurs, then the sign of
+		 * the result is not the same as the sign of the mathematical sum of the
+		 * two operand values.
+		 * 
+		 * 
+		 */
+		int aa = Integer.MIN_VALUE;
+		int bb = -aa;
+		System.out.println(aa + "   " + bb);//
+		System.out.println(Integer.MAX_VALUE + 1);
 	}
 }

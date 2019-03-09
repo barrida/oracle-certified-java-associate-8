@@ -22,7 +22,7 @@ public class StringBuilderFunctions {
 		
 		// Rule 1: substring() does not change the value of a StringBuilder
 		stringBuilder.substring(0, 3);
-		System.out.println(stringBuilder); // it is not qwe! Be careful :) 
+		System.out.println("substring() does not change the value of a StringBuilder: "+stringBuilder); // it is not qwe! Be careful :) 
 
 		// Compile error
 		// StringBuilder b = "string pool";
@@ -43,8 +43,11 @@ public class StringBuilderFunctions {
 		//reverse
 		System.out.println(stringBuilder.reverse());
 		
+		//replace
+		StringBuilder stringBuilder2 = new StringBuilder("12345");
+		System.out.println("replace: "+stringBuilder2.replace(3, 4, "REPLACE"));
+		System.out.println(stringBuilder2.append(true));
 		
-
 	}
 
 }
