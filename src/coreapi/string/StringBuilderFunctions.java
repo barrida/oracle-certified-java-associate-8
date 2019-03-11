@@ -15,39 +15,46 @@ public class StringBuilderFunctions {
 		new StringBuilderFunctions();
 		functions();
 	}
-	
-	
+
 	private static void functions() {
 		StringBuilder stringBuilder = new StringBuilder("qweasdzxc");
-		
-		// Rule 1: substring() does not change the value of a StringBuilder
-		stringBuilder.substring(0, 3);
-		System.out.println("substring() does not change the value of a StringBuilder: "+stringBuilder); // it is not qwe! Be careful :) 
 
-		// Compile error
-		// StringBuilder b = "string pool";
+		/**
+		 * Rule 1: substring() does not change the value of a StringBuilder
+		 */
+		stringBuilder.substring(0, 3);
+		System.out.println("substring() does not change the value of a StringBuilder: " + stringBuilder);
+
+		/**
+		 * Rule 2: append() insert() delete() deleteCharAt() reverse() and
+		 * insert() do change the value of a StringBuilder appends adds the
+		 * string representation of the parameter passed
+		 */
 		
-		// Rule 2: append() insert() delete() deleteCharAt() reverse()  and insert() do change the value of a StringBuilder
-		//appends adds the string representation of the parameter passed
 		stringBuilder.append("string").append(5).append(false).append(3.4).append(2L);
-		
-		//insert
+
+		// insert
 		System.out.println(stringBuilder.insert(2, "HHH"));
-		
-		//delete
+
+		// delete
 		System.out.println(stringBuilder.delete(0, 1));
-		
-		//deleteCharAt
+
+		// deleteCharAt
 		System.out.println(stringBuilder.deleteCharAt(0));
-		
-		//reverse
+
+		// reverse
 		System.out.println(stringBuilder.reverse());
-		
-		//replace
+
+		// replace
 		StringBuilder stringBuilder2 = new StringBuilder("12345");
-		System.out.println("replace: "+stringBuilder2.replace(3, 4, "REPLACE"));
+		System.out.println("replace: " + stringBuilder2.replace(3, 4, "REPLACE"));
 		System.out.println(stringBuilder2.append(true));
+
 		
+		// Compile error: Type mismatch: cannot convert from String to
+		// StringBuilder
+		// StringBuilder b = "string pool";
+
 	}
 
 }

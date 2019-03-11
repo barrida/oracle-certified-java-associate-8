@@ -16,14 +16,33 @@ public class Main {
 
 		/**
 		 * Data types supported by switch statements include the following:
+		 * 
 		 * int and Integer
+		 * 
 		 * byte and Byte
+		 * 
 		 * short and Short
+		 * 
 		 * char and Character
-		 * int and Integer
+		 * 
 		 * String
+		 * 
 		 * enum values
+		 * 
+		 * Note: boolean and long are not permitted on switch statement
 		 */
+
+		/**
+		 * Valid switch CASE statement values:
+		 * 
+		 * literal
+		 * 
+		 * enum constant
+		 * 
+		 * final constant
+		 * 
+		 */
+
 		long key = 1L; // boolean and long are not permitted on switch statement
 
 		// switch (key) {
@@ -53,13 +72,6 @@ public class Main {
 			System.out.println("Saturday");
 			break;
 		}
-		
-		/**
-		 * switch case statement value must also be a literal, enum constant, or
-		 * final constant variable.
-		 * 
-		 */
-
 
 	}
 

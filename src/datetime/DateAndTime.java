@@ -2,11 +2,14 @@ package datetime;
 
 import java.time.*;
 import java.time.format.*;
+import java.time.temporal.TemporalAccessor;
 
 /**
- * All the classes in the new Date Time API are immutable and good for
- * multithreaded environments. They are packaged under or sub packages of
- * java.time package.
+ * All the classes in the new Date Time API are immutable
+ * 
+ * Good for multithreaded environments.
+ * 
+ * Under or sub packages of java.time package.
  * 
  * @author suleyman.yildirim
  *
@@ -19,6 +22,63 @@ public class DateAndTime {
 		formattingDates();
 		patternsForFormatting();
 		parsingDatesAndTimes();
+		exceptions();
+	}
+
+	/**
+	 * LocalDate, LocalTime, and LocalDateTime classes
+	 */
+	private static void dateTimeClasses() {
+		System.out.println("-------------------------------\nLocalDate, LocalTime, and LocalDateTime classes");
+
+		LocalDate date1 = LocalDate.of(2018, Month.SEPTEMBER, 22);
+		System.out.println("LocalDate: " + date1);
+		LocalTime time1 = LocalTime.of(6, 15, 20, 200);
+		System.out.println("LocalTime" + time1);
+		LocalDateTime dateTime1 = LocalDateTime.of(2015, Month.JANUARY, 20, 6, 15, 30);
+		System.out.println("LocalDateTime: " + dateTime1);
+	}
+
+	/**
+	 * Patterns for Formatting and Parsing
+	 */
+	private static void patternsForFormatting() {
+		System.out.println("-------------------------------\nPatterns for Formatting and Parsing");
+
+		// Create date objects
+		LocalDateTime dateTime = LocalDateTime.now();
+		LocalTime time = LocalTime.now();
+		LocalDate date = LocalDate.now();
+
+		// The format() method is declared on both the formatter objects and the date/time objects
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d MMMMM yyyy");
+		System.out.println("Formats this date-time using the specified formatter: " + dateTime.format(dateTimeFormatter));
+		System.out.println("Formats a date-time object using this formatter: " + dateTimeFormatter.format(dateTime));
+
+		// ISO is a standard for dates
+		System.out.println("Formats a date-time using DateTimeFormatter.ISO_LOCAL_DATE: " + dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE));
+		System.out.println("Formats a time using DateTimeFormatter.ISO_LOCAL_TIME: "+ time.format(DateTimeFormatter.ISO_LOCAL_TIME));
+		System.out.println("Formats a date-time using DateTimeFormatter.ISO_LOCAL_DATE_TIME: "+ dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+
+		// We can only use this formatter with objects containing times
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm");
+		System.out.println("Format time hh:mm: " + dateTime.format(timeFormatter));
+		timeFormatter.format(dateTime);
+		//timeFormatter.format(date); // throw an exception Unsupported field:
+		// ClockHourOfAmPm
+		timeFormatter.format(time); // ok
+	}
+
+	/**
+	 * Parsing Dates and Times
+	 */
+	private static void parsingDatesAndTimes() {
+		System.out.println("-------------------------------\nParsing Dates and Times");
+		DateTimeFormatter f = DateTimeFormatter.ofPattern("MM dd yyyy");
+		LocalDate date = LocalDate.parse("01 02 2015", f);
+		LocalTime time = LocalTime.parse("11:22");
+		System.out.println(date); // 2015-01-02
+		System.out.println(time); // 11:22
 	}
 
 	/**
@@ -27,24 +87,41 @@ public class DateAndTime {
 	 * You are only responsible for SHORT and MEDIUM predifined formats for the
 	 * exam
 	 * 
+	 * DateTimeFormatter f = DateTimeFormatter.ofLocalizedDate(FormatStyle.___);
+	 * DateTimeFormatter f = DateTimeFormatter.ofLocalizedTime(FormatStyle.___);
+	 * DateTimeFormatter f = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.___);
+	 * 
+	 * 
 	 * DateTimeFormatter f = DateTimeFormatter. _____ (FormatStyle.SHORT);
 	 * DateTimeFormatter f = DateTimeFormatter. _____ (FormatStyle.MEDIUM);
 	 */
 	private static void formattingDates() {
-		System.out.println("-------------------------------\n Formatting Dates and Times");
+		System.out.println("-------------------------------\nFormatting Dates and Times");
+		
+	
+		
 		// DateTimeFormatter constructors
 		DateTimeFormatter ofLocalizedDate = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
 		DateTimeFormatter ofLocalizedTime = DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM);
 		DateTimeFormatter ofLocalizedDateTime = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
 
+		
 		// Using formatting
 		LocalDate date = LocalDate.of(2015, 1, 20);
 		LocalTime time = LocalTime.of(6, 15);
 		LocalDateTime dateTime = LocalDateTime.of(date, time);
 
+		
 		DateTimeFormatter ofLocalizedDate2 = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
 		System.out.println(ofLocalizedDate2.format(dateTime)); // 1/20/20
 		System.out.println(ofLocalizedDate2.format(date)); // 1/20/20
+		
+		
+		String medium = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(LocalDate.of(2019,Month.APRIL,12));
+		System.out.println("FormatStyle.MEDIUM: " + medium);
+		
+		String shortVersion = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).format(LocalDate.of(2019,Month.APRIL,12));
+		System.out.println("FormatStyle.SHORT: " + shortVersion);
 		// System.out.println(ofLocalizedDate2.format(time)); //
 		// UnsupportedTemporalTypeException. Time cannot be formatted as a date
 	}
@@ -78,59 +155,21 @@ public class DateAndTime {
 	}
 
 	/**
-	 * LocalDate, LocalTime, and LocalDateTime classes
+	 * Examples for java.time.format.DateTimeParseException
 	 */
-	private static void dateTimeClasses() {
-		System.out.println("-------------------------------\nLocalDate, LocalTime, and LocalDateTime classes");
+	private static void exceptions() {
 
-		LocalDate date1 = LocalDate.of(2018, Month.SEPTEMBER, 22);
-		System.out.println("LocalDate: " + date1);
-		LocalTime time1 = LocalTime.of(6, 15, 20, 200);
-		System.out.println("LocalTime" + time1);
-		LocalDateTime dateTime1 = LocalDateTime.of(2015, Month.JANUARY, 20, 6, 15, 30);
-		System.out.println("LocalDateTime: " + dateTime1);
-	}
+		java.time.LocalDateTime d3 = java.time.LocalDateTime.parse("2015-01-02T17:13:50");
+		// Note that this will throw a  java.time.format.DateTimeParseException
+		// if the input string lacks the time component i.e.T17:13:50
 
-	/**
-	 * Patterns for Formatting and Parsing
-	 */
-	private static void patternsForFormatting() {
-		System.out.println("-------------------------------\nPatterns for Formatting and Parsing");
-		
-		//Create date objects
-		LocalDateTime dateTime = LocalDateTime.now();
-		LocalTime time = LocalTime.now();
-		LocalDate date = LocalDate.now();
-		
-		//The format() method is declared on both the formatter objects and the date/time objects
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d MMMMM yyyy");
-		System.out.println("Formats this date-time using the specified formatter: " + dateTime.format(dateTimeFormatter));
-		System.out.println("Formats a date-time object using this formatter: " + dateTimeFormatter.format(dateTime));
-		
-		//ISO is a standard for dates
-		System.out.println("Formats a date-time using DateTimeFormatter.ISO_LOCAL_DATE: " + dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE));
-		System.out.println("Formats a time using DateTimeFormatter.ISO_LOCAL_TIME: " + time.format(DateTimeFormatter.ISO_LOCAL_TIME));
-		System.out.println("Formats a date-time using DateTimeFormatter.ISO_LOCAL_DATE_TIME: " + dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
-		
-		// We can only use this formatter with objects containing times
-		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm"); 
-		System.out.println("Format time hh:mm: " + dateTime.format(timeFormatter));
-		timeFormatter.format(dateTime);
-		//timeFormatter.format(date); // throw an exception Unsupported field: ClockHourOfAmPm
-		timeFormatter.format(time); // ok
-	}
-	
-	/**
-	 * Parsing Dates and Times
-	 */
-	private static void parsingDatesAndTimes() {
-		System.out.println("-------------------------------\nParsing Dates and Times");
-		DateTimeFormatter f = DateTimeFormatter.ofPattern("MM dd yyyy");
-		LocalDate date = LocalDate.parse("01 02 2015", f);
-		LocalTime time = LocalTime.parse("11:22");
-		System.out.println(date); // 2015-01-02
-		System.out.println(time); // 11:22
-	}
+		java.time.LocalDate d4 = java.time.LocalDate.parse("2015-01-02");
+		// Note that this will throw a  java.time.format.DateTimeParseException
+		// if the input string contains the time component
 
+		java.time.LocalTime d5 = java.time.LocalTime.parse("02:13:59.985");
+		// Note that this will throw a  java.time.format.DateTimeParseException
+		// if the input string contains the Date component
+	}
 
 }

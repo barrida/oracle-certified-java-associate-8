@@ -20,4 +20,4 @@ endsWith()	  			toString()
 contains()	
 replace()	
 trim()
-	
+concat()	

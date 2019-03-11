@@ -23,6 +23,10 @@ public class StringFunctions {
 
 		// charAt
 		String s = "Java8";
+		
+//		if (s instanceof String) {
+//			System.out.println("instance of");
+//		}
 
 		System.out.println(s.charAt(0));
 		System.out.println(s.charAt(s.length() - 1));
