@@ -38,7 +38,7 @@ public class ArrayListFunctions {
 
 		// set() - doesn't change the size.
 		arr.set(0, 12);
-		System.out.println(arr);
+		System.out.println("set() - doesn't change the size of array: "+arr);
 
 		// isEmpty(), size()
 		if (arr.isEmpty()) {
