@@ -1,19 +1,15 @@
 package coreapi.wrapper;
 
-import com.sun.org.apache.regexp.internal.CharacterArrayCharacterIterator;
-
 public class Main {
 
 	public static void main(String[] args) {
 
 		/**
-		 * Autoboxing:  int to Integer
+		 * Autoboxing: int to Integer
 		 * 
 		 * Unboxing: Integer to int
 		 * 
 		 */
-		
-		
 		// Wrapper Classes
 		int a = 5, b = 3, k = 0;
 		int m = 0;
@@ -62,11 +58,10 @@ public class Main {
 		 * 
 		 * If an integer addition overflows, then the result is the low-order
 		 * bits of the mathematical sum as represented in some sufficiently
-		 * large two's-complement format. 
+		 * large two's-complement format.
 		 * 
-		 * If overflow occurs, then the sign of
-		 * the result is not the same as the sign of the mathematical sum of the
-		 * two operand values.
+		 * If overflow occurs, then the sign of the result is not the same as
+		 * the sign of the mathematical sum of the two operand values.
 		 * 
 		 * 
 		 */
@@ -74,5 +69,38 @@ public class Main {
 		int bb = -aa;
 		System.out.println(aa + "   " + bb);//
 		System.out.println(Integer.MAX_VALUE + 1);
+
+		/**
+		 * Wrapper options
+		 */
+		String mStr = "123";
+		long m3 = new Long(mStr);
+		long m1 = Long.parseLong(mStr);
+		long m2 = Long.valueOf(mStr).longValue();
+		System.out.println(m3);
+		System.out.println(m1);
+		System.out.println(m2);
+
+		float f1 = 123_222.345_667F;
+		float f2 = 123_345_667F;
+
+		String myStr = "good";
+		char[] myCharArr = { 'g', 'o', 'o', 'd' };
+
+		String newStr = null;
+		for (char ch : myCharArr) {
+			newStr = newStr + ch;
+		}
+
+		System.out.println((newStr) + " " + (newStr.equals(myStr)));
+
+		int i;
+		int j;
+		for (i = 0, j = 0; j < i; ++j, i++) {
+			System.out.println("inside for loop");
+			System.out.println(i + " " + j);
+		}
+		System.out.println(i + " " + j);
+
 	}
 }
