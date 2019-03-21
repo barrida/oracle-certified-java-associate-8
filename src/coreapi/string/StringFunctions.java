@@ -66,6 +66,13 @@ public class StringFunctions {
 			System.out.println(
 					"If a and b are of type boolean, the expression (a = b) can be used as the condition expression of an if statement.");
 		}
+		
+		//indexOf(int ch, int fromIndex)
+		String sIndex = "MINIMUM";
+	    System.out.println(sIndex.indexOf('M', 3)); //4
+	    System.out.println(sIndex.indexOf('m', 3)); //-1 index not found
+	    //indexOf(String str, int fromIndex)
+	    System.out.println(sIndex.indexOf("NIM", 0)); //2 
 
 	}
 

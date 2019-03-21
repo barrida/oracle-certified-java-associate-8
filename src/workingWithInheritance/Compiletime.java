@@ -1,4 +1,4 @@
-package working_with_inheritance;
+package workingWithInheritance;
 
 /***
  * Which variable (or static method) will be used depends on the class that the
