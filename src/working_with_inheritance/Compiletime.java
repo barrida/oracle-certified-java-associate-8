@@ -26,6 +26,77 @@ class Base {
 
 }
 
+/***
+ * 
+ * Overriding Return Type --> Rule 1: In case of overriding, the return type of
+ * the overriding method must match exactly to the return type of the overridden
+ * method if the return type is a primitive.
+ * 
+ * Overriding Return Type --> Rule 2: (In case of objects, the return type of
+ * the overriding method may be a subclass of the return type of the overridden
+ * method.)
+ * 
+ * @author suleyman.yildirim
+ *
+ */
+class MyBaseReturnClass {
+
+}
+
+class MyChildReturnClass extends MyBaseReturnClass {
+
+}
+
+class A {
+
+	public int foo() {
+		return 1;
+	}
+
+	public Object getMyObject() {
+		Object o = new Object();
+		System.out.println("class A: " + o);
+		return o;
+	}
+
+	public Integer getInteger() {
+		return Integer.valueOf(1);
+	}
+	
+	MyBaseReturnClass getMyClass(){
+		return new MyBaseReturnClass();
+	}
+
+}
+
+class B extends A {
+	// Rule 1 --> compile error
+	// public short foo() {
+	// return 1;
+	// }
+
+	// Rule 2 --> ccompile error: return type should be subclass of Integer
+	// public int getInteger() {
+	// return Integer.valueOf(1).intValue();
+	// }
+
+	
+	// Rule 2 --> compiles
+	public Integer getMyObject() {
+		Integer i = new Integer(1);
+		Integer.valueOf(1);
+		Integer.valueOf("1");
+		System.out.println("class B: " + i);
+		return i;
+	}
+
+	// Rule 2 --> compiles
+	MyChildReturnClass getMyClass(){
+		return new MyChildReturnClass();
+	}
+	
+}
+
 class Base2 extends Base {
 
 	public int a = 7;
@@ -54,5 +125,9 @@ public class Compiletime {
 		b.setNumber((int) 12.0); // this is not overriding so it calls the
 									// function in super class
 
+		//overriding return type calls
+		A a = new B();
+		a.getMyObject();
+		a.getMyClass();
 	}
 }
