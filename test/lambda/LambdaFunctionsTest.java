@@ -2,6 +2,8 @@ package lambda;
 
 import static org.junit.Assert.*;
 
+import java.util.function.Predicate;
+
 import org.junit.Test;
 
 public class LambdaFunctionsTest {

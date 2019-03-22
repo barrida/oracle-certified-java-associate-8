@@ -2,10 +2,11 @@ package lambda;
 
 import java.util.function.*;
 
-interface Predicate<T> {
-	boolean test(T t);
-}
-
+/**
+ * 
+ * @author suleyman.yildirim
+ *
+ */
 public class LambdaFunctions {
 
 	public static void main(String[] args) {
@@ -27,8 +28,11 @@ public class LambdaFunctions {
 	private static void functionalInterface() {
 
 		Predicate<Integer> isOdd = i -> (i % 2 == 0);
+		
+		
 		System.out.println(isOdd.test(10)); // true
 		System.out.println(isOdd.test(11)); // false
+		
 
 		Predicate<String> empty = s -> (s.isEmpty());
 		System.out.println(empty.test("")); // true
