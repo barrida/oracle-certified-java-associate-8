@@ -44,7 +44,8 @@ class ExhibitClosed extends RuntimeException {
 class ExhibitClosedForLunch extends ExhibitClosed {
 }
 
-class NoMoreCarrotsException extends Exception {}
+class MySubclassException extends Exception {
+}
 
 public class Main {
 
@@ -54,10 +55,10 @@ public class Main {
 		throw new Exception();
 	}
 
-	private static void eatCarrot() throws NoMoreCarrotsException {
+	private static void eatCarrot() throws MySubclassException {
 	}
 
-	public static void main(String[] args)  {
+	public static void main(String[] args) {
 		// System.out.println(s.substring(s.indexOf('I', 4))); //4
 		// try {
 		// foo();
@@ -71,10 +72,11 @@ public class Main {
 		} catch (Exception e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
-		}// DOES NOT COMPILE
+		} // DOES NOT COMPILE
 		try {
-			tomis();
+			// tomis();
 			System.out.println("after Tomis");
+			foo2();
 			foo();
 		} catch (IOException e1) {
 			e1.printStackTrace();
@@ -104,7 +106,7 @@ public class Main {
 
 		}
 
-		/** Compile error: super class should be caught last **/
+		/** Compile error: subclass should be caught last **/
 		// try {
 		// seeAnimal();
 		// } catch (ExhibitClosed e) {// first catch block
@@ -143,6 +145,33 @@ public class Main {
 
 	static void foo() throws IOException {
 		throw new IOException("hoppaa");
+	}
+
+	public static void bad() throws MySubclassException {
+		try {
+			foo2();
+		} catch (MySubclassException e) {
+			System.out.println("bad...");
+			System.out.println(e);
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
+
+			System.out.println(e);
+		}
+	}
+
+	public static void good() throws MySubclassException {
+		try {
+			foo2();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static void foo2() throws Exception {
+		throw new MySubclassException();
 	}
 
 }
