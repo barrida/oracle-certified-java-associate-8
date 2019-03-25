@@ -7,7 +7,7 @@ public class StringManipulation {
 		equality();
 	}
 
-	private static void equality() {
+	public static void equality() {
 		
 		String s1 = "Java"; // Use string pool	
 		String s2 = new String("Java"); // don't use string pool and create object
@@ -25,7 +25,7 @@ public class StringManipulation {
 	/**
 	 * 
 	 */
-	private static void immutability() {
+	public static void immutability() {
 		// String is immutable so an object cannot be modified or garbage collected
 		String s = "Java";
 		s.concat("8");

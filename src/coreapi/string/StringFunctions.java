@@ -14,7 +14,22 @@ package coreapi.string;
 public class StringFunctions {
 
 	public static void main(String[] args) {
+		objectEquality();
 		commonFunctions();
+	}
+
+	/**
+	 * 
+	 */
+	private static void objectEquality() {
+		StringFunctions s1 = new StringFunctions();
+		StringFunctions s2 = new StringFunctions();
+		System.out.println(s1 == s2); // false
+		System.out.println(s1.equals(s2)); //false
+		
+		StringBuilder sb1 = new StringBuilder();
+		StringBuilder sb2 = new StringBuilder();
+		System.out.println(sb1.equals(sb2)); //false
 	}
 
 	private static void commonFunctions() {
@@ -23,10 +38,10 @@ public class StringFunctions {
 
 		// charAt
 		String s = "Java8";
-		
-//		if (s instanceof String) {
-//			System.out.println("instance of");
-//		}
+
+		// if (s instanceof String) {
+		// System.out.println("instance of");
+		// }
 
 		System.out.println(s.charAt(0));
 		System.out.println(s.charAt(s.length() - 1));
@@ -56,7 +71,7 @@ public class StringFunctions {
 		int total = 0;
 		StringBuilder letters = new StringBuilder("suleyman");
 		total += letters.substring(4).length();
-		// total += letters.substring(6, 5).length();
+		//total += letters.substring(6, 5).length();
 		// //java.lang.StringIndexOutOfBoundsException: String index out of
 		// range:
 		System.out.println(total);
@@ -66,13 +81,21 @@ public class StringFunctions {
 			System.out.println(
 					"If a and b are of type boolean, the expression (a = b) can be used as the condition expression of an if statement.");
 		}
-		
-		//indexOf(int ch, int fromIndex)
+
+		// indexOf(int ch, int fromIndex)
 		String sIndex = "MINIMUM";
-	    System.out.println(sIndex.indexOf('M', 3)); //4
-	    System.out.println(sIndex.indexOf('m', 3)); //-1 index not found
-	    //indexOf(String str, int fromIndex)
-	    System.out.println(sIndex.indexOf("NIM", 0)); //2 
+		System.out.println(sIndex.indexOf('M', 3)); // 4
+		System.out.println(sIndex.indexOf('m', 3)); // -1 index not found
+		// indexOf(String str, int fromIndex)
+		System.out.println(sIndex.indexOf("NIM", 0)); // 2
+
+		// trim
+		// Whitespace consists of spaces along with the \t (tab) and \n (
+		// (newline) characters
+		System.out.println("abc".trim()); // abc
+		System.out.println("   Hello    World       ".trim()); // Hello    World // It leaves the spaces that are in the middle of the string
+		System.out.println("   Hello    World       ".trim().length()); // a b c It leaves the spaces that are in the middle of the string
+		System.out.println("   Hello    World       ".length()); // a b c It leaves the spaces that are in the middle of the string
 
 	}
 

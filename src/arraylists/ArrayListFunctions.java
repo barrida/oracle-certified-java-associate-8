@@ -32,8 +32,15 @@ public class ArrayListFunctions {
 		arr.add(2, 45);
 		System.out.println(arr);
 
-		// remove()
-		arr.remove(0);
+		/**
+		 * remove() 
+		 * boolean remove(Object object)
+		 * E remove(int index)
+		 */
+		arr.remove(0); // remove the element at index 0 
+		System.out.println(arr);
+
+		arr.remove(Integer.valueOf(8)); // remove the element 8
 		System.out.println(arr);
 
 		// set() - doesn't change the size.
@@ -58,7 +65,7 @@ public class ArrayListFunctions {
 		// clear()
 		arr.clear();
 		System.out.println("Array is empty: " + arr.isEmpty());
-		System.out.println("Array size after clear() " + arr.size());
+		System.out.println("Array size after clear: " + arr.size());
 
 		// equals()
 		List<String> s1 = new ArrayList<String>();

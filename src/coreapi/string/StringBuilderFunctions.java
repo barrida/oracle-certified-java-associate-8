@@ -19,10 +19,12 @@ public class StringBuilderFunctions {
 	private static void functions() {
 		StringBuilder stringBuilder = new StringBuilder("qweasdzxc");
 
+		System.out.println("Initial value: " + stringBuilder);
 		/**
 		 * Rule 1: substring() does not change the value of a StringBuilder
 		 */
-		stringBuilder.substring(0, 3);
+		String sub = stringBuilder.substring(0, 3);
+		System.out.println(sub);
 		System.out.println("substring() does not change the value of a StringBuilder: " + stringBuilder);
 
 		/**
@@ -31,13 +33,14 @@ public class StringBuilderFunctions {
 		 * string representation of the parameter passed
 		 */
 		
+		
 		stringBuilder.append("string").append(5).append(false).append(3.4).append(2L);
 
 		// insert
 		System.out.println(stringBuilder.insert(2, "HHH"));
 
 		// delete
-		System.out.println(stringBuilder.delete(0, 1));
+		System.out.println("delete: "+stringBuilder.delete(0, 1));
 
 		// deleteCharAt
 		System.out.println(stringBuilder.deleteCharAt(0));
