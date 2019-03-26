@@ -1,4 +1,4 @@
-package workingWithInheritance;
+package interfaces;
 
 /***
  * Which variable (or static method) will be used depends on the class that the
@@ -10,6 +10,33 @@ package workingWithInheritance;
  * @author suleyman.yildirim
  *
  */
+
+/**
+ * Default interface rules
+ * 
+ * 1. must have method body
+ * 
+ * 2. must only be declared in interface
+ * 
+ * 3. access modifier must be public
+ * 
+ * @author suleyman.yildirim
+ *
+ */
+
+interface IWorkout {
+
+	public default boolean isFinished() { // compile error
+		return true;
+	}
+}
+
+interface DefaultClass extends IWorkout {
+
+	public default boolean isFinished() { // can redefine
+		return false;
+	}
+}
 
 /// Runtime Polymorphism example.
 class Base {
@@ -62,8 +89,8 @@ class A {
 	public Integer getInteger() {
 		return Integer.valueOf(1);
 	}
-	
-	MyBaseReturnClass getMyClass(){
+
+	MyBaseReturnClass getMyClass() {
 		return new MyBaseReturnClass();
 	}
 
@@ -80,7 +107,6 @@ class B extends A {
 	// return Integer.valueOf(1).intValue();
 	// }
 
-	
 	// Rule 2 --> compiles
 	public Integer getMyObject() {
 		Integer i = new Integer(1);
@@ -91,10 +117,10 @@ class B extends A {
 	}
 
 	// Rule 2 --> compiles
-	MyChildReturnClass getMyClass(){
+	MyChildReturnClass getMyClass() {
 		return new MyChildReturnClass();
 	}
-	
+
 }
 
 class Base2 extends Base {
@@ -125,7 +151,7 @@ public class Compiletime {
 		b.setNumber((int) 12.0); // this is not overriding so it calls the
 									// function in super class
 
-		//overriding return type calls
+		// overriding return type calls
 		A a = new B();
 		a.getMyObject();
 		a.getMyClass();
