@@ -108,11 +108,11 @@ class Base {
 
 	public int a = 5;
 
-	public String getValue() {
+	public String getBaseValue() {
 		return "Base";
 	}
 
-	public void setNumber(int a) {
+	public void setBaseNumber(int a) {
 		System.out.println("Base class set number: " + a);
 	}
 
@@ -122,7 +122,7 @@ class Base2 extends Base {
 
 	public int a = 7;
 
-	public String getValue() { // method should be identical to base class
+	public String getBaseValue() { // method should be identical to base class
 		return "Base2";
 	}
 
@@ -138,20 +138,24 @@ class Base2 extends Base {
 public class Compiletime {
 	public static void main(String[] args) {
 		Base b = new Base2();
-		System.out.println(b.getValue()); // Which instance method will be used
-											// depends on the actual class of
-											// the object that is referenced by
-											// the variable. At run time b
-											// points to an object of class Base
+		System.out.println(b.getBaseValue()); // Which instance method will be
+												// used
+												// depends on the actual class
+												// of
+												// the object that is referenced
+												// by
+												// the variable. At run time b
+												// points to an object of class
+												// Base
 		System.out.println(b.a); // Which variable (or static method) will be
 									// used depends on the class that the
 									// variable is declared of. .
 
-		b.setNumber((int) 12.0); // this is not overriding so it calls the
-									// function in super class
+		b.setBaseNumber((int) 12.0); // this is not overriding so it calls the
+										// function in super class
 
-		Base2 b2 = (Base2) b;
-		b2.aMethod();
+		// b.aMethod(); //is not valid because even though the object referred
+		// to by g is of class Soccer, the reference type of g is Game,
 
 		// overriding return type calls
 		A a = new B();
