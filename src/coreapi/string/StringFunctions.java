@@ -14,8 +14,23 @@ package coreapi.string;
 public class StringFunctions {
 
 	public static void main(String[] args) {
+	    System.out.println("2" + true); 
+	    System.out.println(true + "3"); 
+		  
 		objectEquality();
 		commonFunctions();
+		  
+		  boolean hasParams = (args == null ? false : true);
+
+System.out.println(hasParams);
+			 
+	        if(hasParams){
+	            System.out.println("has params");
+	        }
+	        
+	        {
+	            System.out.println("no params");
+	        }
 	}
 
 	/**
@@ -97,6 +112,7 @@ public class StringFunctions {
 		System.out.println("   Hello    World       ".trim().length()); // a b c It leaves the spaces that are in the middle of the string
 		System.out.println("   Hello    World       ".length()); // a b c It leaves the spaces that are in the middle of the string
 
+		
 	}
 
 }

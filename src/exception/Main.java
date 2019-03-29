@@ -55,7 +55,25 @@ public class Main {
 		throw new Exception();
 	}
 
-	private static void eatCarrot() throws MySubclassException {
+	
+
+  
+    
+    static void myMethod() {
+        try {
+			yourMethod();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    static void yourMethod()  throws Exception{
+        throw new Exception();
+    }    
+
+
+private static void eatCarrot() throws MySubclassException {
 	}
 
 	public static void main(String[] args) {
@@ -67,6 +85,8 @@ public class Main {
 		// System.out.println(e.getMessage());
 		// e.printStackTrace();
 		// }
+		
+		myMethod();
 		try {
 			eatCarrot();
 		} catch (Exception e2) {

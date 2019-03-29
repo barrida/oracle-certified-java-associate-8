@@ -14,6 +14,8 @@ public class ArrayListFunctions {
 	public static void main(String[] args) {
 		// Arrays define a property called length not a function
 		// The ArrayList class defines a method called size().
+		
+		
 		functions();
 	}
 

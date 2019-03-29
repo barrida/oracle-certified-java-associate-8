@@ -1,24 +1,26 @@
 package interfaces;
 
-/***
+/**
+ * 
  * Which variable (or static method) will be used depends on the class that the
  * variable is declared of.
  * 
  * Which instance method will be used depends on the actual class of the object
- * that is referenced by the variable.
+ * that is referenced by the variable
  * 
- * @author suleyman.yildirim
- *
- */
-
-/**
+ * Overriding Return Type --> Rule 1: In case of overriding, the return type of
+ * the overriding method must match exactly to the return type of the overridden
+ * method if the return type is a primitive.
+ * 
+ * Overriding Return Type --> Rule 2: (In case of objects, the return type of
+ * the overriding method may be a subclass of the return type of the overridden
+ * method.)
+ * 
+ * 
  * Default interface rules
  * 
- * 1. must have method body
- * 
- * 2. must only be declared in interface
- * 
- * 3. access modifier must be public
+ * 1. must have method body 2. must only be declared in interface 3. access
+ * modifier must be public
  * 
  * @author suleyman.yildirim
  *
@@ -38,30 +40,8 @@ interface DefaultClass extends IWorkout {
 	}
 }
 
-/// Runtime Polymorphism example.
-class Base {
-
-	public int a = 5;
-
-	public String getValue() {
-		return "Base";
-	}
-
-	public void setNumber(int a) {
-		System.out.println("Base class set number: " + a);
-	}
-
-}
-
 /***
  * 
- * Overriding Return Type --> Rule 1: In case of overriding, the return type of
- * the overriding method must match exactly to the return type of the overridden
- * method if the return type is a primitive.
- * 
- * Overriding Return Type --> Rule 2: (In case of objects, the return type of
- * the overriding method may be a subclass of the return type of the overridden
- * method.)
  * 
  * @author suleyman.yildirim
  *
@@ -102,7 +82,7 @@ class B extends A {
 	// return 1;
 	// }
 
-	// Rule 2 --> ccompile error: return type should be subclass of Integer
+	// Rule 2 --> compile error: return type should be subclass of Integer
 	// public int getInteger() {
 	// return Integer.valueOf(1).intValue();
 	// }
@@ -123,6 +103,21 @@ class B extends A {
 
 }
 
+/// Runtime Polymorphism example.
+class Base {
+
+	public int a = 5;
+
+	public String getValue() {
+		return "Base";
+	}
+
+	public void setNumber(int a) {
+		System.out.println("Base class set number: " + a);
+	}
+
+}
+
 class Base2 extends Base {
 
 	public int a = 7;
@@ -133,6 +128,10 @@ class Base2 extends Base {
 
 	public void setNumber(double a) { // this is not overriding so
 		System.out.println("Child class set number: " + a);
+	}
+
+	public void aMethod() {
+		System.out.println("aMethod");
 	}
 }
 
@@ -150,6 +149,9 @@ public class Compiletime {
 
 		b.setNumber((int) 12.0); // this is not overriding so it calls the
 									// function in super class
+
+		Base2 b2 = (Base2) b;
+		b2.aMethod();
 
 		// overriding return type calls
 		A a = new B();

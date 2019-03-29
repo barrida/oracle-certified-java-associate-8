@@ -1,8 +1,25 @@
 package basics;
 
+import static java.lang.Integer.*;
+
+class MyException extends Exception {
+}
+
 public class Operator {
 
+	public Operator() {
+		try {
+			System.err.println("asda");
+			throw new Exception();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) throws Exception {
+		Operator a = new Operator();
+		Operator b = new Operator();
+		Operator c = a;
 		int i = 1, j = 10;
 		do {
 			System.out.println("i=" + i + " j=" + j);
@@ -20,9 +37,9 @@ public class Operator {
 		 * conditions are satisfied:
 		 * 
 		 * 1. The expression is a compile time constant expression of type byte,
-		 * char, short, or int. 
+		 * char, short, or int.
 		 * 
-		 * 2. The type of the variable is byte, short, or char. 
+		 * 2. The type of the variable is byte, short, or char.
 		 * 
 		 * 3. The value of the expression (which is known at compile time,
 		 * because it is a constant expression) is representable in the type of
@@ -33,27 +50,27 @@ public class Operator {
 		 * char ch = 30L; will fail to compile although 30 is small enough to
 		 * fit into a char.
 		 */
-		char c;
-		int s;
-		c = 'a';// 1
-		s = c; // 2
-		System.out.println(c);
-		System.out.println(s);
-		s++; // 3
-		System.out.println(s);
-		c = (char) s; // 4
-
-		int a = 2;
-		byte b;
-		
-		final char ch = 'a';
-		char asd = ch + 1;
-		System.out.println("asd: " + asd);
-		
-		c = (char) a;
-		b = (byte) a;
-		System.out.println(c);
-		c++; // 5
-		System.out.println(c);
+//		char c;
+//		int s;
+//		c = 'a';// 1
+//		s = c; // 2
+//		System.out.println(c);
+//		System.out.println(s);
+//		s++; // 3
+//		System.out.println(s);
+//		c = (char) s; // 4
+//
+//		int a = 2;
+//		byte b;
+//
+//		final char ch = 'a';
+//		char asd = ch + 1;
+//		System.out.println("asd: " + asd);
+//
+//		c = (char) a;
+//		b = (byte) a;
+//		System.out.println(c);
+//		c++; // 5
+//		System.out.println(c);
 	}
 }
